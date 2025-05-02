@@ -9,10 +9,17 @@ class Post extends Model
 {
     /** @use HasFactory<\Database\Factories\PostFactory> */
     use HasFactory;
-    public function image(): MorphOne
-    {
-        return $this->morphOne(Image::class, 'imageable');
-    }
 
+    //one to one
+    // public function image(): MorphOne
+    // {
+    //     return $this->morphOne(Image::class, 'imageable');
+    // }
+
+
+    //one to many
+    public function image(){
+        return $this->morphMany(Image::class, 'imageable');
+    }
     protected $fillable =['title'];
 }

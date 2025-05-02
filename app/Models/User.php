@@ -24,8 +24,15 @@ class User extends Authenticatable
     ];
 
 
+    // one to one
+    // public function image(){
+    //     return $this->morphOne(Image::class, 'imageable');
+    // }
+
+
+    // one to many
     public function image(){
-        return $this->morphOne(Image::class, 'imageable');
+        return $this->morphMany(Image::class, 'imageable');
     }
     /**
      * The attributes that should be hidden for serialization.
